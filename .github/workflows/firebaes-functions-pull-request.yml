@@ -34,6 +34,8 @@ jobs:
         working-directory: functions
       - name: Set this PR environment with branch name
         run: npm run set:branch -- --token=${{ secrets.FIREBASE_SECRET }}
+        env:
+          FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
         working-directory: functions
       - name: deploy functions to PR enviroment
         run:  npm run deploy:pr -- --token=${{ secrets.FIREBASE_SECRET }} 
