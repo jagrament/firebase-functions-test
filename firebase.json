@@ -13,10 +13,24 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
+    "rewrites": [{
+        "source": "/sdk_v4/**", "function": "sdkV4-main"
+      },{
+        "source": "/console_v4/**", "function": "console_v4-main"
+      },{
+        "source": "/mint_admin_v4/**", "function": "mint_admin_v4-main"
+      },{
+        "source": "/background_functions_v4_on_write_ipfs_datas/**", "function": "background_functions_v4_on_write_ipfs_datas-main"
+      },{
+        "source": "/background_functions_v4_on_every_hour/**", "function": "background_functions_v4_on_every_hour-main"
+      },{
+        "source": "/background_functions_v4_on_every_five_mimutes/**", "function": "background_functions_v4_on_every_five_mimutes-main"
+      },{
+        "source": "/background_functions_v4_on_every_one_mimutes/**", "function": "background_functions_v4_on_every_one_mimutes-main"
+      },{
+        "source": "/admin_v4/**", "function": "admin_v4-main"
+      },{
+        "source": "/webhook_v4/**", "function": "webhook_v4-main"
       }
     ]
   }

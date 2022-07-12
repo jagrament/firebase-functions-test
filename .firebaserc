@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "workspace-274409"
+    "default": "actions-test-bfd35",
+    "development": "actions-test-bfd35"
   }
 }
