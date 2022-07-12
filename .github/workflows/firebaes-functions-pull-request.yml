@@ -39,15 +39,15 @@ jobs:
       #   working-directory: functions
       - name: Set firebase env
         run: firebase use development --token $FIREBASE_TOKEN
+        working-directory: functions
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
-        working-directory: functions
       - name: Set firebase env
         run: firebase functions:config:set branch.name=$(git rev-parse --abbrev-ref HEAD) --token $FIREBASE_TOKEN
+        working-directory: functions
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
-        working-directory: functions
-       - name: deploy functions to PR enviroment
+      - name: deploy functions to PR enviroment
         run:  npm run deploy:pr -- --token=${{ secrets.FIREBASE_SECRET }} 
         working-directory: functions
         env:
