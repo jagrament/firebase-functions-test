@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "actions-test-bfd35",
-    "development": "actions-test-bfd35"
+    "default": "actions-test-bfd35"
   }
 }
