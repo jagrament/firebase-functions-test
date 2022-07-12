@@ -43,12 +43,12 @@ jobs:
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
       - name: Set firebase env
-        run: firebase functions:config:set branch.name=$(git rev-parse --abbrev-ref HEAD) --token $FIREBASE_SECRET
+        run: firebase functions:config:set branch.name=${{github.head_ref}} --token $FIREBASE_SECRET
         working-directory: functions
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
       - name: deploy functions to PR enviroment
-        run:  BRANCH=`git rev-parse --abbrev-ref HEAD` && firebase deploy --only functions:sdkV4-${BRANCH} --token=${{ secrets.FIREBASE_SECRET }} 
+        run: firebase deploy --only functions:sdkV4-${{github.head_ref}} --token=${{ secrets.FIREBASE_SECRET }} 
         working-directory: functions
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
