@@ -38,12 +38,12 @@ jobs:
       #     FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
       #   working-directory: functions
       - name: Set firebase env
-        run: firebase use development --token $FIREBASE_TOKEN
+        run: firebase use development --token $FIREBASE_SECRET
         working-directory: functions
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
       - name: Set firebase env
-        run: firebase functions:config:set branch.name=$(git rev-parse --abbrev-ref HEAD) --token $FIREBASE_TOKEN
+        run: firebase functions:config:set branch.name=$(git rev-parse --abbrev-ref HEAD) --token $FIREBASE_SECRET
         working-directory: functions
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
