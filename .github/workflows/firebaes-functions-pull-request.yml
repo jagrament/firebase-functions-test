@@ -48,7 +48,7 @@ jobs:
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
       - name: deploy functions to PR enviroment
-        run:  npm run deploy:pr -- --token=${{ secrets.FIREBASE_SECRET }} 
+        run:  BRANCH=`git rev-parse --abbrev-ref HEAD` && firebase deploy --only functions:sdkV4-${BRANCH} --token=${{ secrets.FIREBASE_SECRET }} 
         working-directory: functions
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
