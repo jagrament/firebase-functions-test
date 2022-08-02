@@ -1,8 +1,10 @@
 import * as functions from "firebase-functions";
 
-export const sayGrootNested = functions
+const config = functions.config();
+
+export const testFunc = functions
     .https.onRequest((request, response) => {
-      functions.logger.info("Hello Groot!", {structuredData: true});
-      response.send("<h1>I am Groot</h1>");
+      functions.logger.info("Hello!", {structuredData: true});
+      response.send(`<h1>Hello ${config?.branch.name}</h1>`);
     });
 
